@@ -3,6 +3,7 @@ package com.matty.consumer.controller;
 import com.matty.consumer.anno.RpcReference;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import rpc.api.IUserService;
 import rpc.pojo.User;
 
@@ -19,6 +20,7 @@ public class UserController {
     IUserService userService;
 
     @RequestMapping(value = "/getUserById", produces="application/json; utf-8")
+    @ResponseBody
     public User getUserById(int id) {
         return userService.getById(id);
     }
